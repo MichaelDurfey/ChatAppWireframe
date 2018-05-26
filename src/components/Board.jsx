@@ -4,7 +4,7 @@ import Card from './card';
 export default class Board extends React.Component {
 
   render() {
-    const { board } = this.props;
+    const { board, index, last, handleLeftClick, handleRightClick} = this.props;
     return (
       <div className='board'>
         <div className = {`title ${board.title}`}>
@@ -12,15 +12,22 @@ export default class Board extends React.Component {
         </div>
         {
           <div className="cardContainer">
-          { board.tasks.map(tasks => {
+          { 
+            board.tasks.map((tasks, taskIndex) => {
               return (
-                <Card task={tasks} />
+                <Card 
+                leftClick={handleLeftClick} 
+                rightClick={handleRightClick} 
+                index={index} 
+                last={last} 
+                task={tasks} 
+                tIndex={taskIndex} />
               )
             })
           }
           </div>
         }
-        <button onClick={this.props.onClick}>
+        <button onClick={board.onClick}>
           + Add a card
         </button>
       </div>

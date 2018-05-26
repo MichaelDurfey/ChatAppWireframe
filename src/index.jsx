@@ -42,13 +42,33 @@ class App extends React.Component {
 
 
 
-handleClick(i, value) {
+handleClick(i) {
   const input = window.prompt('new card?');
   let board = this.state.boards.slice();
   board[i].tasks.push(input);
   this.setState({
     board,
-  })
+  });
+}
+
+handleLeftClick(i, taskIndex) {
+  const board = this.state.boards.slice();
+  const taskToMove = board[i].tasks[taskIndex];
+  board[i].tasks.splice(taskIndex, 1);
+  board[i - 1].tasks.push(taskToMove);
+  this.setState({
+    board,
+  });
+}
+
+handleRightClick(i, taskIndex) {
+  const board = this.state.boards.slice();
+  const taskToMove = board[i].tasks[taskIndex];
+  board[i].tasks.splice(taskIndex, 1);
+  board[i + 1].tasks.push(taskToMove);
+  this.setState({
+    board,
+  });
 }
 
   render() {
@@ -57,7 +77,13 @@ handleClick(i, value) {
         {
           this.state.boards.map((board, index) => {
             return(
-              <Board index={index} onClick={() => {this.handleClick(index)}}board={board} />
+              <Board 
+              handleLeftClick={(i, taskIndex) => this.handleLeftClick(i, taskIndex)}
+              handleRightClick={(i, taskIndex) => this.handleRightClick(i, taskIndex)}
+              index={index} 
+              last={this.state.boards.length - 1} 
+              onClick={() => {this.handleClick(index)}}
+              board={board} />
             )
           })
         }
