@@ -39,8 +39,25 @@
   justify-content: center;
 }
 
+body {
+  margin: 0;
+}
+
 .navBar {
   background-color: #f0f8ff;
+  height: 30px;
+  display: flex;
+  align-content: center;
+}
+
+.addBoard {
+  background-color: inherit;
+  border: none;
+  font-size: 14px;
+}
+
+.addBoard:hover {
+  background-color: #8e99ff;
 }
 
 .addTaskButton {
