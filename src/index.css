@@ -39,6 +39,10 @@
   justify-content: center;
 }
 
+.navBar {
+  background-color: #f0f8ff;
+}
+
 .addTaskButton {
   margin-top: 5px;
   border: none;

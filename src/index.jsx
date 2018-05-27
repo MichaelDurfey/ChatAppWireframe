@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Board from './components/Board';
+import NavBar from './components/Navbar';
 import './index.css'
 
 class App extends React.Component {
@@ -40,7 +41,20 @@ class App extends React.Component {
     };
   }
 
-
+addBoard() {
+  const title = window.prompt('title?');
+  if (title !== null && title.length > 0) {
+    const boards = this.state.boards.slice();
+    const newBoard = {
+      title,      
+      tasks: [],
+    }
+    boards.push(newBoard);
+    this.setState({
+      boards,
+    })
+  }
+}
 
 handleClick(i) {
   const input = window.prompt('new card?');
@@ -95,11 +109,13 @@ handleRightClick(i, taskIndex) {
 
   render() {
     return (
+    <div>
+      <NavBar addBoard={() => this.addBoard()}/>
       <div className="container">
         {
           this.state.boards.map((board, index) => {
             return(
-              <Board 
+              <Board
               handleLeftClick={(i, taskIndex) => this.handleLeftClick(i, taskIndex)}
               handleRightClick={(i, taskIndex) => this.handleRightClick(i, taskIndex)}
               index={index} 
@@ -110,6 +126,7 @@ handleRightClick(i, taskIndex) {
           })
         }
       </div>
+    </div>
     );
   }
 }
