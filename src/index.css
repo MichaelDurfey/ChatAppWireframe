@@ -29,9 +29,29 @@
 .board {
   display: flex;
   flex-flow: column nowrap;
-  justify-Content: center;
+  align-Content: center;
   margin: 25px;
   width: 300px;
+}
+
+.addTaskContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.addTaskButton {
+  margin-top: 5px;
+  border: none;
+  font-family: sans-serif;
+  font-size: 12px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.addTaskButton:hover {
+  background-color: #f0f8ff;
 }
 
 .cardContainer {
@@ -43,13 +63,18 @@
 
 .task {
   width: 100%;
-  height: 100%;
-  padding-left: 5px; 
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .shift {
+  display: flex;
+  align-items: center;
   border: none;
   padding: 0;
+  background-color: inherit;
+  font-size: 13px;
 }
 
 .shift:hover {
@@ -59,10 +84,12 @@
 .card {
   display: flex;
   width: 100%;
-  margin: 10px 0 0 0px;
+  margin: 5px 0 0 0px;
   padding: 8px;
-  height: 30px;
+  height: 100%;
   box-sizing: border-box;
   justify-content: center;
   align-items: center;
+  border-radius: 5px;
+  background-color: #EFF0F1;
 }

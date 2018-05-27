@@ -44,11 +44,13 @@ class App extends React.Component {
 
 handleClick(i) {
   const input = window.prompt('new card?');
-  let board = this.state.boards.slice();
-  board[i].tasks.push(input);
-  this.setState({
-    board,
-  });
+  if (input !== null && input.length > 0) {
+    let board = this.state.boards.slice();
+    board[i].tasks.push(input);
+    this.setState({
+      board,
+    });
+  }
 }
 
 handleLeftClick(i, taskIndex) {
@@ -71,6 +73,26 @@ handleRightClick(i, taskIndex) {
   });
 }
 
+// getLocalStorage() {
+//   let localStorageObj = localStorage.getItem('_recipeBook');
+//   if (localStorageObj != undefined) {
+//     this.state.recipes = JSON.parse(localStorageObj); 
+//     this.setState(this.state)
+//   }
+// }
+
+// newRecipe(recipe){
+//   this.state.recipes = this.state.recipes.concat(recipe)
+//   this.setState(this.state);
+//   localStorage.setItem('_recipeBook', JSON.stringify(this.state.recipes))
+// }
+  
+// deleteItem(index){
+//   this.state.recipes.splice(index, 1)
+//   this.setState(this.state)
+//   localStorage.setItem('_recipeBook', JSON.stringify(this.state.recipes))
+// }
+
   render() {
     return (
       <div className="container">
@@ -82,7 +104,7 @@ handleRightClick(i, taskIndex) {
               handleRightClick={(i, taskIndex) => this.handleRightClick(i, taskIndex)}
               index={index} 
               last={this.state.boards.length - 1} 
-              onClick={() => {this.handleClick(index)}}
+              addTask={() => {this.handleClick(index)}}
               board={board} />
             )
           })

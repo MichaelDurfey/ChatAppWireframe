@@ -4,7 +4,7 @@ import Card from './card';
 export default class Board extends React.Component {
 
   render() {
-    const { board, index, last, handleLeftClick, handleRightClick} = this.props;
+    const { board, addTask, index, last, handleLeftClick, handleRightClick} = this.props;
     return (
       <div className='board'>
         <div className = {`title ${board.title}`}>
@@ -27,9 +27,11 @@ export default class Board extends React.Component {
           }
           </div>
         }
-        <button onClick={board.onClick}>
-          + Add a card
-        </button>
+        <div className="addTaskContainer">
+          <button className="addTaskButton" onClick={addTask}>
+            + Add a card
+          </button>
+        </div>
       </div>
     );
   }
