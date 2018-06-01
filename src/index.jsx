@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Board from './components/Board';
-import NavBar from './components/Navbar';
+import NavBar from './components/Navbar'
 import './index.css'
 
 class App extends React.Component {
