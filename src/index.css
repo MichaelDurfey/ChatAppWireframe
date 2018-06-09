@@ -17,6 +17,7 @@ html, body {
   display: flex;
   flex-flow: column;
   height: 100%;
+  overflow: auto;
 }
 
 .chatContainer {
@@ -27,14 +28,16 @@ html, body {
 .ChatBox {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: flex-end;
-  align-items: flex-end;
-  align-self: flex-end;
+  justify-content: flex-start;
   height: 100%;
-  width: 400px;
+  min-width: 400px;
   background-color: lightgrey;
   padding: 10px;
-  flex-shrink: 0;
+  overflow: auto;
+}
+
+.ChatBox > div:nth-child(1) {
+  margin-top: auto;
 }
 
 .chatMessage {
@@ -46,12 +49,14 @@ html, body {
   margin: 10px 0 0 0;
   background-color: #fff;
   flex-shrink: 0;
+  /* overflow-y: scroll; */
 }
 
 .cIcontainer {
   display: flex;
   justify-content: space-between;
   height: 100%;
+  overflow: auto;
 }
 
 .gradientImage {
@@ -71,22 +76,25 @@ html, body {
   display: flex;
   justify-content: flex-start;
   flex-shrink: 0;
-  align-items: flex-end;
   background-color: lightskyblue;
 }
 
 .navBar > button {
   margin: 5px;
   flex-shrink: 0;
+  align-items: center;
+  flex: 1;
 }
 
 .input {
-  width: 400px;
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .input > input {
-  width: 100%;
+  width: 400px;
   border-radius: 5px;
   height: 30px;
   border: solid green 1px;
@@ -98,12 +106,4 @@ html, body {
   border: solid green 1px;
   flex-shrink: 0;
   border-radius: 5px;
-}
-
-.MainInput {
-  display: flex;
-  /* flex-flow: column nowrap; */
-  align-items: center;
-  width: 100%;
-  justify-content: center;
 }

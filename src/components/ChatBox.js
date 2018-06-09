@@ -3,11 +3,11 @@ import ChatMessage from './ChatMessage';
 
 const ChatBox = (props) => {
   return(
-  <div className="ChatBox">
+  <section className="ChatBox">
     {
       props.messages.map(message => <ChatMessage message={message}/>)
     }
-  </div>
+  </section>
   );
 }
 

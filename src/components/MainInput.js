@@ -25,25 +25,23 @@ class MainInput extends React.Component {
 
   render() {
     return (
-      <div className="MainInput">
-        <div className="input">
-        <input 
-        type="text" 
-        placeholder="New Message!"
-        value={this.state.input}
-        onChange={this.handleChange}
-        autoFocus
-        onKeyPress={event => {
-                if (event.key === 'Enter') {
-                  this.handleSubmit()
-                }
-              }}
-        />
-        <button
-          value="Submit"
-          onClick={this.handleSubmit}>
-          Submit</button>
-        </div>
+      <div className="input">
+      <input 
+      type="text" 
+      placeholder="New Message!"
+      value={this.state.input}
+      onChange={this.handleChange}
+      autoFocus
+      onKeyPress={event => {
+              if (event.key === 'Enter') {
+                this.handleSubmit()
+              }
+            }}
+      />
+      <button
+        value="Submit"
+        onClick={this.handleSubmit}>
+        Submit</button>
       </div>
     );
   }
