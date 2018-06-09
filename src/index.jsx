@@ -15,7 +15,7 @@ class App extends React.Component {
 
   handleSubmit(text) {
     const messages = this.state.messages.slice();
-    messages.push(text);
+    messages.unshift(text);
     this.setState({
       messages,
     })
