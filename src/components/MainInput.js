@@ -1,4 +1,5 @@
 import React from 'react';
+import Background from './Background';
 
 class MainInput extends React.Component {
   constructor(props) {
@@ -26,22 +27,25 @@ class MainInput extends React.Component {
   render() {
     return (
       <div className="input">
-      <input 
-      type="text" 
-      placeholder="New Message!"
-      value={this.state.input}
-      onChange={this.handleChange}
-      autoFocus
-      onKeyPress={event => {
-              if (event.key === 'Enter') {
-                this.handleSubmit()
-              }
-            }}
-      />
-      <button
-        value="Submit"
-        onClick={this.handleSubmit}>
-        Submit</button>
+        <Background />
+          <div className="inputField">
+            <input 
+            type="text" 
+            placeholder="New Message!"
+            value={this.state.input}
+            onChange={this.handleChange}
+            autoFocus
+            onKeyPress={event => {
+                    if (event.key === 'Enter') {
+                      this.handleSubmit()
+                    }
+                  }}
+            />
+            <button
+              value="Submit"
+              onClick={this.handleSubmit}>
+              Submit</button>
+          </div>
       </div>
     );
   }

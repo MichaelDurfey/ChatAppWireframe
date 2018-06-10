@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import NavBar from './components/Navbar'
 import ChatBox from './components/ChatBox';
 import MainInput from './components/MainInput';
+// import Background from './components/Background';
+
 import './index.css'
 
 class App extends React.Component {
