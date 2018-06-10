@@ -12,13 +12,14 @@ class App extends React.Component {
     super(props);
     this.state = {
       messages: ['a;ksdfj', ';askdfj', 'a;ksdfjh;lk'],
-      mesagesMap: {},
+      messagesMap: {},
+      searchResults: [],
       index: 0,
     }
   }
 
   buildHashMap(text) {
-    const map = Object.assign({}, this.state.mesagesMap);
+    const map = Object.assign({}, this.state.messagesMap);
     text.split(' ').forEach(word => {
       if (word in map) {
         if (!map[word].includes(this.state.index)) {
@@ -28,20 +29,26 @@ class App extends React.Component {
         map[word] = [];
       }
     })
+    return map;
   }
 
   handleSubmit(text) {
-    this.buildHashMap(text)
+    const map = this.buildHashMap(text);
     const messages = this.state.messages.slice();
     messages.unshift(text);
     this.setState({
       messages,
+      messagesMap,
       index: this.state.index += 1,
     })
   }
 
-  searchSubmit() {
-
+  searchSubmit(text) {
+    const indices = text.split(' ').reduce(word => {
+      if (word in this.state.messagesMap) {
+        
+      }
+    })
   }
 
   render() {
