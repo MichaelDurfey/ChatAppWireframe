@@ -5,6 +5,7 @@ class Navbar extends React.Component {
     super(props)
     this.state = {
       text: '',
+      search: false,
     }
   }
 
@@ -18,6 +19,7 @@ class Navbar extends React.Component {
     this.props.searchSubmit(this.state.text);
     this.setState({
       text: '',
+      search: !this.state.search,
     })
   }
 
@@ -37,6 +39,7 @@ class Navbar extends React.Component {
           className="SearchSubmit"
           onClick={() => this.handleSubmit()} 
         >
+        { !this.state.search ? 'Submit' : 'Clear' }
         </button>
         <button className="navButton">
           Login
