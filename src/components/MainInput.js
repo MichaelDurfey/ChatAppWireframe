@@ -29,6 +29,7 @@ class MainInput extends React.Component {
       <div className="input">
         <Background />
           <div className="inputField">
+            <h4>Submit your messages below!</h4>
             <input 
             type="text" 
             placeholder="New Message!"
