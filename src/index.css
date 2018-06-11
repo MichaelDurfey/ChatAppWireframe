@@ -50,9 +50,12 @@ html, body {
   border: solid 1px lightblue;
   margin: 10px 0 0 0;
   background-color: #fff;
+  flex-grow: 0;
   flex-shrink: 0;
-  /* overflow-y: scroll; */
+  flex-basis: 100px;
 }
+
+
 
 .cIcontainer {
   display: flex;
